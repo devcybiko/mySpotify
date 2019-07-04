@@ -161,3 +161,6 @@ as well as each page by name
 
 `https://devcybiko.github.io/mySpotify/index.html`
 
+### AN ALTERNATIVE:
+
+The alternative would be to __white list__ only your github pages and constantly PUSH to your master branch. Worth thinking about.
