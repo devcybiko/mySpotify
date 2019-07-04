@@ -82,7 +82,6 @@ spotify = {
     },
 
     call: function(url, data, callbackFunction) {
-        let searchURL = 'https://api.spotify.com/v1/search';
         $.ajaxSetup({
             headers: {
                 Authorization: 'Bearer ' + getCookie('access_token')
