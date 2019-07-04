@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang="en" charset="UTF-8">
+    <head>
+        <title>Spotify Fun</title>
+        <meta http-equiv="refresh" content="-1;url=#" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="assets/images/favicon.ico" />
+        <link rel="stylesheet" href="assets/css/reset.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    </head>
+    <body>
+        <h1>SPOTIFY FUN</h1>
+        <button onclick="myLogin()">Login</button><br />
+        <button onclick="myLogout()">Logout</button><br />
+        <hr />
+        <button onclick="mySearch('depeche mode')">Depeche Mode</button><br />
+        <button onclick="mySearch('weird al')">Weird Al</button><br />
+        <a href="index.html">Link</a>
+
+        <div id="main"></div>
+
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"
+        ></script>
+        <script type="text/javascript" src="assets/js/spotify.js"></script>
+        <script type="text/javascript" src="assets/js/app.js"></script>
+        <script>
+            function myLogin() {
+                var clientId = 'ae735174e6d74af294e078eeeaa6e5c6'; // from https://developer.spotify.com/dashboard/applications
+                var callbackURL = window.location.href; // the current web page
+                spotify.login(clientId, callbackURL);
+            }
+
+            function myLogout() {
+                spotify.logout();
+            }
+
+            function mySearch(searchTerms) {
+                $('#main').html('');
+                spotify.call(
+                    'https://api.spotify.com/v1/search',
+                    { q: searchTerms, type: 'track,artist', market: 'US', limit: '10', offset: '0' },
+                    myCallback
+                );
+            }
+
+            function myCallback(data) {
+                $('#main').html('<p>' + JSON.stringify(data) + '</p>');
+            }
+        </script>
+    </body>
+</html>
