@@ -155,3 +155,9 @@ You'll have to do this for EVERY page that will call Spotify APIs.
 
 You have to also include your Github Pages URLs, too. When you deploy your apps to production, your URLs change. So be sure to __White List__ them, too.
 
+`https://devcybiko.github.io/mySpotify/`
+
+as well as each page by name
+
+`https://devcybiko.github.io/mySpotify/index.html`
+
