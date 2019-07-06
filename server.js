@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const express = require('express');
 const app = express();
 var port = process.env.PORT || 80;
@@ -15,7 +16,7 @@ app.use(function(req, res, next) {
 /* serves all the static files */
 app.get(/^(.+)$/, function(req, res) {
     console.log('static file request : ' + req.params);
-    res.sendFile(__dirname + req.params[0]);
+    res.sendFile(process.cwd() + req.params[0]);
 });
 
 app.listen(port, err => {
