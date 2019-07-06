@@ -1,12 +1,13 @@
 # Spotify Sample Code
 
+In case it isn't abundantly clear, you'll need to ``clone`` this repo onto your hard drive.
+
 This is a sample project for a simple Spotify API. The most difficult part is the oAuth authentication with Spotify. There are at least three scenarios for authenticating with Spotify - two of them are for server-side apps. This sample code works in the browser only.
 
 See the Spotify Docs on [Implicit Grant Flow](https://developer.spotify.com/documentation/general/guides/authorization-guide/#implicit-grant-flow) for more details.
 
-The `spotify.js` file in the `assets/js` folder is all you need to use Spotify in the browser.
-
 You'll have to _white list_ your web pages (see ##spotify.login) and also run a local webserver to test your pages locally.
+
 
 ## Running the local `server.js`
 
@@ -23,20 +24,23 @@ If you don't have that go here: [Nodejs.org](https://nodejs.org/en/)
 Next, you'll have to initialized the software:
 
 ```bash
-$ npm install
+$ cd /Users/greg/git/mySpotify ### go to the mySpotify repo you cloned
+$ npm install -g
 ```
 
 Finally, run the local server:
+(Be sure to `cd your-project-with-html-files` first)
 
 ```bash
-$ node server.js
+$ cd /User/greg/git/myProject
+$ myserver
 server is listening on 80
 ```
 
 If you see errors like this:
 
 ```bash
-$ node server.js
+$ myserver
 events.js:177
       throw er; // Unhandled 'error' event
       ^
